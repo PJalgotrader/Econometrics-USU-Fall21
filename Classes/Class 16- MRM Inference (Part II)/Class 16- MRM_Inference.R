@@ -79,12 +79,15 @@ reg_new2   <- lm(lwage~ I(2*univ+jc)+univ+exper, df)
 summary(reg_new1)
 summary(reg_new2)
 
-stargazer(reg, reg_new, reg_new1, reg_new2, type="text")
+stargazer(reg,  reg_new1, reg_new2, type="text")
 
 
 #------------------------------------------------------------------------------------
 # later in chapter 6 we will see that we can use the following function as well.
 library(car)
-linearHypothesis(reg, c("jc-univ=0"))
+linearHypothesis(reg, c("2*jc-univ=0"))
+
+
+
 
 
