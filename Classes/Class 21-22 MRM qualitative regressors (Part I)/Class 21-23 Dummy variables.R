@@ -28,7 +28,7 @@ head(wage1)
 reg_categories <- lm(lwage~I(married*(1-female))+ I(married*female) + I((1-married)*female) + educ + exper+I(exper^2) + tenure + I(tenure^2), wage1)
 stargazer(reg_categories, type="text")
 
-plot(effect("tenure", reg_categories))
+plot(effect("exper", reg_categories))
 
 #model 2
 reg_interaction <- lm(lwage~ female + married + married:female + educ + exper+I(exper^2) + tenure + I(tenure^2), wage1)
@@ -123,14 +123,13 @@ prop.table(Confusion_Matrix,margin=1)
 
 ########################
 
-# for HW10 question 6: How to define a binary variable ecobuy
+# for HW11 question 6: How to define a binary variable ecobuy
+
+
 head(apple)
 df <- mutate(apple, ecobuy = ifelse(ecolbs>0,1,0))
 
 head(df)
-
-
-
 
 
 ############################# Optional: Logistic Regression (Chapter 17) ##########################
